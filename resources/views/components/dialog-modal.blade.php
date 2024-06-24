@@ -2,16 +2,22 @@
 
 <x-modal :id="$id" :maxWidth="$maxWidth" {{ $attributes }}>
     <div class="px-6 py-4">
-        <div class="text-lg font-medium text-gray-900">
-            {{ $title }}
-        </div>
+        @if (isset($title))
+            <div class="text-lg font-medium text-zinc-900 dark:text-zinc-100">
+                {{ $title }}
+            </div>
+        @endif
 
-        <div class="mt-4 text-sm text-gray-600">
-            {{ $content }}
-        </div>
+        @if (isset($content))
+            <div class="my-4 text-sm text-zinc-600 dark:text-zinc-300">
+                {{ $content }}
+            </div>
+        @endif
     </div>
 
-    <div class="flex flex-row justify-end px-6 py-4 bg-gray-100 text-end">
-        {{ $footer }}
-    </div>
+    @if (isset($footer))
+        <div class="flex flex-row justify-end px-6 py-4 text-right bg-zinc-100 dark:bg-zinc-900">
+            {{ $footer }}
+        </div>
+    @endif
 </x-modal>
